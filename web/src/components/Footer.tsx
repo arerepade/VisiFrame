@@ -23,26 +23,55 @@ export default function Footer() {
 
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-footer-rule pt-6 text-[13px]">
           <span>{FOOTER_COPYRIGHT}</span>
-          <a
-            href="https://www.linkedin.com/in/louis-benagha-30167a432/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-[13px] text-footer-text hover:text-white hover:underline"
-          >
-            <span>Made with ❤️ by Louis</span>
-            <span className="relative size-7 shrink-0 overflow-hidden rounded-full">
-              <Image
-                src="/louis.jpg"
-                alt="Louis Benagha"
-                fill
-                sizes="28px"
-                className="object-cover object-top"
-              />
-            </span>
-          </a>
+
+          <div className="flex items-center gap-4">
+            <a
+              href="https://x.com/louisbenagha"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="VisiFrame on X"
+              className="text-footer-text transition-colors hover:text-white"
+            >
+              <XIcon />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/louis-benagha-30167a432/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-[13px] text-footer-text hover:text-white hover:underline"
+            >
+              <span>Made with ❤️ by Louis</span>
+              <span className="relative size-7 shrink-0 overflow-hidden rounded-full">
+                <Image
+                  src="/louis.jpg"
+                  alt="Louis Benagha"
+                  fill
+                  sizes="28px"
+                  className="object-cover object-top"
+                />
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
+  );
+}
+
+/** The post-rebrand X mark. */
+function XIcon() {
+  return (
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+      focusable="false"
+    >
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
   );
 }
 
