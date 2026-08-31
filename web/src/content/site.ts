@@ -37,30 +37,47 @@ export const STEPS = [
   },
 ] as const;
 
+/**
+ * Audience cards. `hue` tints the icon tile; `icon` is the CSS glyph drawn
+ * inside it — both taken from the prototype, which draws these in CSS rather
+ * than using an icon font or SVG set.
+ */
 export const AUDIENCES = [
   {
     title: "Developers",
-    body: "Explore visual directions before writing the first line of code.",
+    hue: 250,
+    desc: "Explore visual directions before writing the first line of code.",
+    icon: { top: 8, left: 8, width: 18, height: 12, border: "2px solid oklch(45% 0.16 250)", borderRadius: 3 },
   },
   {
     title: "UI/UX & Web Designers",
-    body: "Turn references into original concepts, design systems and editable files.",
+    hue: 38,
+    desc: "Turn references into original concepts, design systems and editable files.",
+    icon: { top: 7, left: 7, width: 10, height: 10, background: "oklch(55% 0.18 38)", borderRadius: 2, boxShadow: "6px 6px 0 oklch(75% 0.1 38)" },
   },
   {
     title: "Freelancers",
-    body: "Give clients multiple website directions without days of concept work.",
+    hue: 340,
+    desc: "Give clients multiple website directions without days of concept work.",
+    icon: { top: 9, left: 8, width: 16, height: 16, borderRadius: "50%", border: "2px solid oklch(50% 0.18 340)", borderTopColor: "transparent" },
   },
   {
     title: "No-Code & AI Builders",
-    body: "Create a clear visual foundation before building in your preferred platform.",
+    hue: 200,
+    desc: "Create a clear visual foundation before building in your preferred platform.",
+    icon: { top: 9, left: 8, width: 16, height: 2, background: "oklch(45% 0.16 200)", boxShadow: "0 5px 0 oklch(45% 0.16 200), 0 10px 0 oklch(45% 0.16 200)" },
   },
   {
     title: "Founders, Creators & Small Businesses",
-    body: "Turn websites you admire into an original direction for your own brand.",
+    hue: 95,
+    desc: "Turn websites you admire into an original direction for your own brand.",
+    icon: { top: 7, left: 9, width: 0, height: 0, borderLeft: "8px solid transparent", borderRight: "8px solid transparent", borderBottom: "12px solid oklch(45% 0.14 95)" },
   },
   {
     title: "Students & New Designers",
-    body: "Study website design patterns and turn inspiration into practical design work.",
+    hue: 280,
+    desc: "Study website design patterns and turn inspiration into practical design work.",
+    icon: { top: 9, left: 9, width: 14, height: 16, border: "2px solid oklch(48% 0.16 280)", borderRadius: "2px 2px 6px 2px" },
   },
 ] as const;
 
@@ -169,7 +186,7 @@ export const PLANS = [
       { ok: true, text: "Desktop and mobile designs" },
       { ok: true, text: "Two AI revision requests per project" },
       { ok: true, text: "Colors, typography and component design system" },
-      { ok: true, text: "Editable Figma export" },
+      { ok: true, text: "Editable Figma export — organized frames, text, colors and reusable components" },
       { ok: true, text: "Responsive HTML/CSS export" },
       { ok: true, text: "Commercial usage" },
       { ok: true, text: "No VisiFrame watermark" },
@@ -184,14 +201,24 @@ export const PRICING_NOTE = {
     "Early access is free. When we launch paid plans, early access users get their first month on us.",
 } as const;
 
-export const FOOTER = {
-  blurb:
-    "Original, development-ready website designs — inspired by what you love, built for what you're making.",
-  product: NAV_LINKS,
-  company: [
-    { label: "Terms", href: "/terms" },
-    { label: "Privacy", href: "/privacy" },
-    { label: "Contact", href: "/contact" },
-  ],
-  copyright: "© 2026 VisiFrame. All rights reserved.",
-} as const;
+/**
+ * Footer links. The Product column has four entries in the prototype — the
+ * first points at the preview-demo section, not at the page top.
+ */
+export const FOOTER_PRODUCT = [
+  { label: "Product", href: "#preview-demo" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Examples", href: "#examples" },
+  { label: "Pricing", href: "#pricing" },
+] as const;
+
+export const FOOTER_COMPANY = [
+  { label: "Terms", href: "/terms" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Contact", href: "/contact" },
+] as const;
+
+export const FOOTER_BLURB =
+  "Original, development-ready website designs — inspired by what you love, built for what you're making.";
+
+export const FOOTER_COPYRIGHT = "© 2026 VisiFrame. All rights reserved.";

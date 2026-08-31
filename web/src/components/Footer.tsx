@@ -1,43 +1,46 @@
-import { FOOTER, CTA, FORM_ANCHOR } from "@/content/site";
+import { FOOTER_PRODUCT, FOOTER_COMPANY, FOOTER_BLURB, FOOTER_COPYRIGHT } from "@/content/site";
 
+/** Footer — dark ground, exactly as specified in the prototype. */
 export default function Footer() {
   return (
-    <>
-      <section className="bg-ink text-white">
-        <div className="mx-auto max-w-6xl px-5 py-20 text-center md:py-24">
-          <h2 className="mx-auto max-w-[20ch] font-display text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.02em]">
-            You already know what you like. Now make it yours.
-          </h2>
-          <a href={FORM_ANCHOR} className="btn-primary mt-8">
-            {CTA}
-          </a>
-        </div>
-      </section>
-
-      <footer className="bg-white">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.6fr_1fr_1fr]">
-          <div>
-            <p className="flex items-center gap-2.5 font-display font-bold">
-              <span aria-hidden className="size-4 rounded-[5px] bg-accent" />
+    <footer className="bg-footer px-8 pt-16 pb-10 text-footer-text">
+      <div className="mx-auto max-w-[1180px]">
+        <div className="mb-12 flex flex-wrap justify-between gap-10">
+          <div className="max-w-[260px]">
+            <p className="mb-3 flex items-center gap-2 font-display text-[19px] font-bold text-white">
+              <span
+                aria-hidden
+                className="inline-block size-4 rounded bg-accent"
+                style={{ transform: "rotate(45deg)" }}
+              />
               VisiFrame
             </p>
-            <p className="mt-3 max-w-[38ch] text-sm leading-relaxed text-muted">
-              {FOOTER.blurb}
-            </p>
+            <p className="text-sm leading-[1.6]">{FOOTER_BLURB}</p>
           </div>
 
-          <FooterCol title="Product" links={FOOTER.product} />
-          <FooterCol title="Company" links={FOOTER.company} />
-        </div>
-
-        <div className="border-t border-line">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-6 text-xs text-faint">
-            <p>{FOOTER.copyright}</p>
-            <p>Made with ♥ by Louis</p>
+          <div className="flex flex-wrap gap-14">
+            <FooterCol title="Product" links={FOOTER_PRODUCT} />
+            <FooterCol title="Company" links={FOOTER_COMPANY} />
           </div>
         </div>
-      </footer>
-    </>
+
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-footer-rule pt-6 text-[13px]">
+          <span>{FOOTER_COPYRIGHT}</span>
+          <a
+            href="https://www.linkedin.com/"
+            target="_blank"
+            rel="noopener"
+            className="flex items-center gap-2 text-[13px] text-footer-text hover:text-white hover:underline"
+          >
+            <span>Made with ❤️ by Louis</span>
+            <span
+              aria-hidden
+              className="size-7 shrink-0 overflow-hidden rounded-full bg-footer-rule"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
   );
 }
 
@@ -49,19 +52,13 @@ function FooterCol({
   links: readonly { label: string; href: string }[];
 }) {
   return (
-    <div>
-      <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-faint">
-        {title}
-      </p>
-      <ul className="mt-4 space-y-2.5">
-        {links.map((l) => (
-          <li key={l.href}>
-            <a href={l.href} className="text-sm text-muted transition-colors hover:text-ink">
-              {l.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <div className="flex flex-col gap-2.5">
+      <p className="mb-1.5 text-[13px] font-semibold text-white">{title}</p>
+      {links.map((l) => (
+        <a key={l.label} href={l.href} className="text-sm text-footer-text hover:text-white">
+          {l.label}
+        </a>
+      ))}
     </div>
   );
 }

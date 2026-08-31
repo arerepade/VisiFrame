@@ -1,28 +1,34 @@
 import { STEPS } from "@/content/site";
+import Reveal from "./Reveal";
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="bg-white">
-      <div className="section">
-        <p className="eyebrow">How It Works</p>
-        <h2 className="h2 mt-3 max-w-[18ch]">
+    <Reveal
+      id="how-it-works"
+      className="border-y border-line bg-white px-8 py-24"
+    >
+      <div className="mx-auto max-w-[1120px]">
+        <p className="m-0 mb-3 text-[13px] font-bold uppercase tracking-[0.08em] text-accent-deep">
+          How It Works
+        </p>
+        <h2 className="m-0 mb-14 max-w-[640px] font-display text-[clamp(28px,3.4vw,38px)] font-bold">
           From inspiration to a finished direction, in three steps.
         </h2>
 
-        <ol className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-10">
           {STEPS.map((s) => (
-            <li key={s.n}>
-              <span className="inline-flex size-9 items-center justify-center rounded-lg bg-accent-tint font-display text-sm font-bold text-accent-deep">
+            <div key={s.n}>
+              <div className="mb-5 flex size-12 items-center justify-center rounded-xl bg-accent-tint font-display text-[18px] font-bold text-accent-deep">
                 {s.n}
-              </span>
-              <h3 className="mt-4 font-display text-base font-bold">{s.title}</h3>
-              <p className="mt-2 max-w-[38ch] text-sm leading-relaxed text-muted">
-                {s.body}
-              </p>
-            </li>
+              </div>
+              <h3 className="m-0 mb-2.5 font-display text-[20px] font-semibold">
+                {s.title}
+              </h3>
+              <p className="m-0 text-[15.5px] leading-[1.6] text-muted">{s.body}</p>
+            </div>
           ))}
-        </ol>
+        </div>
       </div>
-    </section>
+    </Reveal>
   );
 }
