@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+/**
+ * VisiFrame design tokens.
+ *
+ * Lifted from the approved prototype (design_handoff_website/VisiFrame.dc.html),
+ * which is high-fidelity: colours, type and spacing there are intentional and
+ * meant to be recreated precisely rather than approximated.
+ *
+ * Values stay in oklch as authored — converting to hex would quietly shift the
+ * warm neutrals, which are what make the palette feel considered rather than grey.
+ */
+@theme {
+  /* Neutrals — all warm (hue 75), which is the character of the palette. */
+  --color-ink: oklch(19% 0.008 75);
+  --color-muted: oklch(47% 0.01 75);
+  --color-faint: oklch(60% 0.01 75);
+  --color-line: oklch(89% 0.012 75);
+  --color-line-soft: oklch(92% 0.012 75);
+  --color-surface: oklch(96.5% 0.01 75);
+  --color-surface-warm: oklch(96.5% 0.012 60);
+  --color-ground: oklch(98.4% 0.004 75);
+
+  /* Accent — coral. One job: the primary action and emphasis. */
+  --color-accent: oklch(62% 0.2 38);
+  --color-accent-deep: oklch(45% 0.2 38);
+  --color-accent-tint: oklch(93% 0.05 38);
+
+  /* --font-sora / --font-jakarta are injected by next/font in layout.tsx. */
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Sticky nav is ~68px; keep anchored sections clear of it. */
+  scroll-padding-top: 88px;
+}
+
+body {
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Repeated primitives. Kept here rather than as components so section files
+   stay short and the visual language is defined in one place. */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-[15px]
+           font-semibold text-white transition hover:brightness-110
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-deep;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-xl border border-line bg-white px-5 py-3
+           text-[15px] font-semibold text-ink transition hover:border-ink/30
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-deep;
+  }
+  .eyebrow {
+    @apply text-[11px] font-bold uppercase tracking-[0.12em] text-accent-deep;
+  }
+  .h2 {
+    @apply font-display text-[clamp(1.75rem,3.4vw,2.6rem)] font-bold leading-[1.12] tracking-[-0.02em];
+  }
+  .section {
+    @apply mx-auto max-w-6xl px-5 py-20 md:py-28;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-white p-6;
+  }
+}
+
+/* Sections fade up as they enter view, matching the prototype's
+   IntersectionObserver reveal. Starts visible so content is never hidden
+   if JS fails. */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

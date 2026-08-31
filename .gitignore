@@ -1,0 +1,58 @@
+# This repo tracks the public marketing site (web/) only.
+# Everything else in the working directory stays local.
+
+# Design prototypes — high-fidelity references, not shipped code
+/design_handoff_dashboard/
+/design_handoff_website/
+
+# Phase 0 quality spike — the generation pipeline, run locally
+/phase-0-design-quality/
+
+# Product docs
+/PRODUCT_VISION.md
+
+# ---------------------------------------------------------------------------
+# web/ — standard Next.js ignores
+# ---------------------------------------------------------------------------
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+coverage/
+
+# next.js
+.next/
+out/
+build/
+dist/
+
+# misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env — never commit secrets
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
