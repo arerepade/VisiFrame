@@ -9,11 +9,7 @@ export default function Footer() {
         <div className="mb-12 flex flex-wrap justify-between gap-10">
           <div className="max-w-[260px]">
             <p className="mb-3 flex items-center gap-2 font-display text-[19px] font-bold text-white">
-              <span
-                aria-hidden
-                className="inline-block size-4 rounded bg-accent"
-                style={{ transform: "rotate(45deg)" }}
-              />
+              <Image src="/visiframe-mark.svg" alt="" width={16} height={16} />
               VisiFrame
             </p>
             <p className="text-sm leading-[1.6]">{FOOTER_BLURB}</p>

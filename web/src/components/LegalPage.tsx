@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 /**
  * Shared shell for Terms and Privacy. Both prototypes use an identical layout —
@@ -22,11 +23,7 @@ export default function LegalPage({
             href="/"
             className="flex items-center gap-2 font-display text-[19px] font-bold text-ink"
           >
-            <span
-              aria-hidden
-              className="inline-block size-[18px] rounded-[5px] bg-accent"
-              style={{ transform: "rotate(45deg)" }}
-            />
+            <Image src="/visiframe-mark.svg" alt="" width={18} height={18} />
             VisiFrame
           </Link>
         </div>

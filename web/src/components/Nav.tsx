@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { NAV_LINKS, CTA, FORM_ANCHOR } from "@/content/site";
 
 /**
@@ -47,10 +48,13 @@ export default function Nav() {
             href="#top"
             className="flex items-center gap-2 font-display text-[20px] font-bold text-ink"
           >
-            <span
-              aria-hidden
-              className="inline-block size-5 rounded-[6px] bg-accent"
-              style={{ transform: "rotate(45deg)" }}
+            <Image
+              src="/visiframe-mark.svg"
+              alt=""
+              width={20}
+              height={20}
+              className="inline-block"
+              priority
             />
             VisiFrame
           </a>
