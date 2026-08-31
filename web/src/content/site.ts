@@ -215,7 +215,11 @@ export const FOOTER_PRODUCT = [
 export const FOOTER_COMPANY = [
   { label: "Terms", href: "/terms" },
   { label: "Privacy", href: "/privacy" },
-  { label: "Contact", href: "/contact" },
+  // Contact is hidden during the concierge phase. The prototype's contact page
+  // is a second message form that duplicates the request form, and its
+  // hello@visiframe.app address does not exist. Restore this line once there is
+  // a real page or address behind it.
+  // { label: "Contact", href: "/contact" },
 ] as const;
 
 export const FOOTER_BLURB =
