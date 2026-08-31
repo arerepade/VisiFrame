@@ -36,7 +36,18 @@ export default function LegalPage({
         <h1 className="m-0 mb-2 font-display text-[clamp(30px,4vw,40px)] font-bold">
           {title}
         </h1>
-        <p className="m-0 mb-12 text-sm text-faint">{updated}</p>
+        <p className="m-0 mb-6 text-sm text-faint">{updated}</p>
+
+        {/**
+         * These terms describe the self-serve product — accounts, dashboards,
+         * monthly billing — none of which exists yet. Rather than rewrite them
+         * for a phase that will pass, the gap is stated plainly up front.
+         */}
+        <p className="mb-12 rounded-xl border border-line bg-accent-tint/50 px-5 py-4 text-sm leading-[1.6] text-muted">
+          VisiFrame is in early access. Projects are currently hand-built and
+          free, and there are no accounts or subscriptions yet — the terms below
+          describe the service as it will operate once self-serve launches.
+        </p>
 
         <div
           className="flex flex-col gap-9 text-[15.5px] leading-[1.7]"

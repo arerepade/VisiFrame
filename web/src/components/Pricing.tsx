@@ -77,9 +77,14 @@ export default function Pricing() {
                 <p
                   key={f.text}
                   className="m-0 text-[14.5px]"
-                  style={{ color: "oklch(85% 0.01 75)" }}
+                  style={{ color: f.ok === "soon" ? "oklch(70% 0.01 75)" : "oklch(85% 0.01 75)" }}
                 >
-                  ✓ {f.text}
+                  {f.ok === "soon" ? "◦" : "✓"} {f.text}
+                  {f.ok === "soon" && (
+                    <span className="ml-2 rounded-full bg-white/10 px-2 py-0.5 text-[11px] font-semibold whitespace-nowrap">
+                      Coming soon
+                    </span>
+                  )}
                 </p>
               ))}
             </div>

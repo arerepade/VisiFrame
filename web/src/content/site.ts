@@ -137,7 +137,7 @@ export const FAQS = [
   },
   {
     q: "What do I actually get when I download?",
-    a: "A responsive front-end build of your selected direction — clean HTML and CSS you can drop into any project — plus a short design-system reference covering colors, type and components.",
+    a: "A responsive front-end build of your selected direction — clean HTML and CSS you can drop into any project — plus a short design-system reference covering colors, type and components. Editable Figma export is in development and not yet available during early access.",
   },
   {
     q: "Are mobile layouts included?",
@@ -153,6 +153,7 @@ export const FAQS = [
   },
 ] as const;
 
+/** `ok: "soon"` marks a feature that is planned but not yet available. */
 export const PLANS = [
   {
     name: "Free Preview",
@@ -186,7 +187,7 @@ export const PLANS = [
       { ok: true, text: "Desktop and mobile designs" },
       { ok: true, text: "Two AI revision requests per project" },
       { ok: true, text: "Colors, typography and component design system" },
-      { ok: true, text: "Editable Figma export — organized frames, text, colors and reusable components" },
+      { ok: "soon", text: "Editable Figma export — organized frames, text, colors and reusable components" },
       { ok: true, text: "Responsive HTML/CSS export" },
       { ok: true, text: "Commercial usage" },
       { ok: true, text: "No VisiFrame watermark" },
