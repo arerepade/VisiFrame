@@ -16,7 +16,17 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+/**
+ * Absolute base for Open Graph and Twitter image URLs — social crawlers cannot
+ * resolve relative paths. Vercel sets VERCEL_PROJECT_PRODUCTION_URL, so this
+ * keeps working if a custom domain is attached later.
+ */
+const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "https://visi-frame.vercel.app";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "VisiFrame — Turn website inspiration into a design of your own",
   description:
     "Paste the websites you love, describe what you're building, and receive three original, development-ready homepage designs for your brand. Never a copy of a source site.",
@@ -39,6 +49,14 @@ export const metadata: Metadata = {
       "Three original homepage directions, generated from the sites you admire. Built for developers, designers, freelancers and founders.",
     type: "website",
     siteName: "VisiFrame",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "VisiFrame — three original homepage directions generated from real reference sites",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -47,6 +65,7 @@ export const metadata: Metadata = {
     title: "VisiFrame — Turn website inspiration into a design of your own",
     description:
       "Three original homepage directions, generated from the sites you admire.",
+    images: ["/og.jpg"],
   },
 };
 
