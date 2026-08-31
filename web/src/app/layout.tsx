@@ -42,6 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@louisbenagha",
+    creator: "@louisbenagha",
     title: "VisiFrame — Turn website inspiration into a design of your own",
     description:
       "Three original homepage directions, generated from the sites you admire.",
