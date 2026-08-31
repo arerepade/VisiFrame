@@ -112,6 +112,16 @@ export default function RequestForm() {
         <textarea name="otherNotes" rows={3} className={`${inputCls} resize-y`} />
       </Field>
 
+      {/* Above the button, not below it — the last thing read before clicking
+          should be that it costs nothing. */}
+      <p
+        className="m-0 rounded-lg bg-accent-tint px-3.5 py-2.5 text-center text-[15px] font-bold"
+        style={{ color: "oklch(40% 0.2 38)" }}
+      >
+        Free while we&rsquo;re in early access — we&rsquo;ll reply within 24 hours with
+        three original homepage designs.
+      </p>
+
       <button
         type="submit"
         disabled={state.submitting}
@@ -119,11 +129,6 @@ export default function RequestForm() {
       >
         {state.submitting ? "Sending…" : "Send my request"}
       </button>
-
-      <p className="m-0 text-center text-[12.5px]" style={{ color: "oklch(52% 0.01 75)" }}>
-        Free while we&rsquo;re in early access. We&rsquo;ll reply within 24 hours with
-        three original homepage designs.
-      </p>
 
       {state.errors && <ErrorNote email={email} />}
     </form>

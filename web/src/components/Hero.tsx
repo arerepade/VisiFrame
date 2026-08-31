@@ -22,7 +22,7 @@ export default function Hero() {
           {HERO.body}
         </p>
 
-        <div className="flex flex-wrap gap-3.5">
+        <div className="flex flex-wrap items-center gap-3.5">
           <a
             href={FORM_ANCHOR}
             className="rounded-[10px] bg-accent px-[26px] py-[15px] text-base font-semibold text-white"
@@ -36,6 +36,12 @@ export default function Hero() {
           >
             See Examples
           </a>
+          {/* Free is the whole draw of early access — it sits beside the CTA
+              rather than in the quiet note below it. */}
+          <span className="inline-flex items-center gap-2 rounded-full bg-accent-tint px-3.5 py-[7px] text-[13px] font-semibold text-accent-deep">
+            <span aria-hidden className="size-1.5 rounded-full bg-accent" />
+            Free during early access
+          </span>
         </div>
 
         <p className="mt-4 text-[13.5px] text-note">{HERO.note}</p>

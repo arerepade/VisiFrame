@@ -14,19 +14,30 @@ export default function Pricing() {
           Simple pricing for regular use.
         </h2>
 
-        <div className="mb-[18px] text-center">
-          <span className="inline-block rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-bold text-note">
+        <div className="mb-5 rounded-xl bg-accent-tint px-6 py-[18px] text-center">
+          <span className="text-[19px] font-bold" style={{ color: "oklch(40% 0.2 38)" }}>
             {PRICING_NOTE.badge}
           </span>
         </div>
 
-        <p className="m-0 mb-14 text-center text-base text-muted">{PRICING_NOTE.body}</p>
+        <p className="m-0 mb-12 text-center text-[15px] text-muted">{PRICING_NOTE.body}</p>
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] items-start gap-6">
           {/* Free Preview — light card */}
           <div className="rounded-2xl border border-line bg-white p-9">
             <p className="m-0 mb-1.5 font-display text-[18px] font-bold">{free.name}</p>
-            <p className="m-0 mb-1.5 font-display text-[34px] font-bold">{free.price}</p>
+            <p
+              className="m-0 mb-0.5 font-display text-[34px] font-bold"
+              style={{ color: "oklch(78% 0.01 75)" }}
+            >
+              {free.price}
+            </p>
+            <p
+              className="m-0 mb-2.5 text-[11.5px] font-semibold"
+              style={{ color: "oklch(58% 0.01 75)" }}
+            >
+              Not billed yet
+            </p>
             <p className="m-0 mb-5 text-[13px] text-note">{free.blurb}</p>
 
             <div className="mb-7 flex flex-col gap-3">
@@ -59,14 +70,23 @@ export default function Pricing() {
             </div>
 
             <p className="m-0 mb-1.5 font-display text-[18px] font-bold">{creator.name}</p>
-            <p className="m-0 mb-1.5 font-display text-[34px] font-bold">
+            <p
+              className="m-0 mb-0.5 font-display text-[34px] font-bold"
+              style={{ color: "oklch(55% 0.02 75)" }}
+            >
               {creator.price}
               <span
                 className="text-[15px] font-medium"
-                style={{ color: "oklch(75% 0.01 75)" }}
+                style={{ color: "oklch(50% 0.02 75)" }}
               >
                 {creator.period}
               </span>
+            </p>
+            <p
+              className="m-0 mb-2.5 text-[11.5px] font-semibold"
+              style={{ color: "oklch(65% 0.02 75)" }}
+            >
+              Not billed yet
             </p>
             <p className="m-0 mb-5 text-[13px]" style={{ color: "oklch(75% 0.01 75)" }}>
               {creator.blurb}
