@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FOOTER_PRODUCT, FOOTER_COMPANY, FOOTER_BLURB, FOOTER_COPYRIGHT } from "@/content/site";
 
 /** Footer — dark ground, exactly as specified in the prototype. */
@@ -27,16 +28,21 @@ export default function Footer() {
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-footer-rule pt-6 text-[13px]">
           <span>{FOOTER_COPYRIGHT}</span>
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/louis-benagha-30167a432/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 text-[13px] text-footer-text hover:text-white hover:underline"
           >
             <span>Made with ❤️ by Louis</span>
-            <span
-              aria-hidden
-              className="size-7 shrink-0 overflow-hidden rounded-full bg-footer-rule"
-            />
+            <span className="relative size-7 shrink-0 overflow-hidden rounded-full">
+              <Image
+                src="/louis.jpg"
+                alt="Louis Benagha"
+                fill
+                sizes="28px"
+                className="object-cover object-top"
+              />
+            </span>
           </a>
         </div>
       </div>
