@@ -6,8 +6,9 @@ import { useEffect, useRef, useState } from "react";
  * Scroll reveal, matching the prototype's IntersectionObserver behaviour:
  * a section fades and rises into place once, then stays put.
  *
- * The `js` class is set on <html> only after hydration, so with JS disabled or
- * still loading the CSS in globals.css leaves everything visible.
+ * The `js` class is set on <html> only after hydration and only when
+ * IntersectionObserver exists, so with JS disabled, still loading, or missing
+ * the API, the CSS in globals.css leaves everything visible.
  */
 export default function Reveal({
   as: Tag = "section",
@@ -24,14 +25,15 @@ export default function Reveal({
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
-    document.documentElement.classList.add("js");
     const node = ref.current;
     if (!node) return;
 
-    if (typeof IntersectionObserver === "undefined") {
-      setShown(true);
-      return;
-    }
+    // Without IntersectionObserver there is no way to reveal on scroll, so we
+    // never add the "js" class — globals.css only hides [data-reveal] under it,
+    // so the content simply stays visible.
+    if (typeof IntersectionObserver === "undefined") return;
+
+    document.documentElement.classList.add("js");
 
     const io = new IntersectionObserver(
       (entries) => {
