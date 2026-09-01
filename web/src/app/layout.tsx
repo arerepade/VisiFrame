@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -74,7 +75,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${sora.variable} ${jakarta.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* Cookieless page analytics. Renders nothing; reports to the Analytics
+            tab of the Vercel project, so no cookie banner is required. */}
+        <Analytics />
+      </body>
     </html>
   );
 }
