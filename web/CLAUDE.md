@@ -9,6 +9,28 @@ components, pages, styles, config, content. Split before you approach the limit:
 extract sub-components, move copy into `src/content/`, or lift shared logic into
 a hook. A file nearing 300 lines is a signal it is doing more than one job.
 
+## Git workflow
+
+**Never push directly to `main`.** Branch first, push the branch, and let
+`main` move only through a merge:
+
+```bash
+git checkout feature-dev        # or a task-specific branch cut from main
+```
+
+**Run the linter before every push and fix what it reports:**
+
+```bash
+npm run lint
+```
+
+A failing lint is not ready to push. A passing `npm run build` is not a
+substitute — the production build does not run ESLint.
+
+Pushing requires the `arerepade` GitHub account. If `alouisbenagha` is the
+active `gh` account the push fails with a 403; switch with
+`gh auth switch --user arerepade` and switch back afterwards.
+
 ## Structure
 
 - `src/app/` — routes, layout, global styles
